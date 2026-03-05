@@ -1,8 +1,14 @@
 import { useMoviesStore } from '../store/moviesStore'
+import { useNavigate } from 'react-router-dom';
 
 function MovieDescription() {
 
 const { selectedMovie } = useMoviesStore()
+const navigate = useNavigate();
+
+const goToSeatsChooice = () => {
+  navigate(`/SeatsPage/${selectedMovie.Title}`)
+}
 
   return (
     <section className='movies-Description'>
@@ -12,11 +18,7 @@ const { selectedMovie } = useMoviesStore()
         <p>{selectedMovie.Genre}</p>
         <p>{selectedMovie.Actors}</p>
         <p>{selectedMovie.Plot}</p>
-        {/* <p>{selectedMovie.}</p>
-        <p>{selectedMovie.}</p>
-        <p>{selectedMovie.}</p>
-        <p>{selectedMovie.}</p> */}
-        <button className='movies-Description-btn-chooseSeats'>Choose seats</button>
+        <button className='movies-Description-btn-chooseSeats' onClick={() => goToSeatsChooice()}>Choose seats</button>
 
     </section>
   )

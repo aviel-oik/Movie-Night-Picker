@@ -1,0 +1,10 @@
+[
+  {
+    "movieId": "t1234567",
+    "seatNumber": 6
+  },
+  {
+    "movieId": "t0123456",
+    "seatNumber": 23
+  }
+]

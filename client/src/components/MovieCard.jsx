@@ -6,19 +6,22 @@ import { useNavigate } from 'react-router-dom';
 
 function MovieCard() {
 
-  const {movies, isLoading, error, setMovies, setSelectedMovie, selectedMovie} = useMoviesStore()
+  const {movies, isLoading, error, fetchMovies, setSelectedMovie, selectedMovie} = useMoviesStore()
   const navigate = useNavigate();
 
+ 
+
   useEffect(() => {
-    setMovies()
+    fetchMovies()
   }, []);
 
   const goToSeeDetails = (title) => {
     navigate(`/MovieDetailsPage/${title}`)
     setSelectedMovie(title)
-    console.log(selectedMovie)
   }
-
+ 
+  if (isLoading) return <p>Loading...</p>
+  
   return (
     <section className='movies-cards'>
       {
